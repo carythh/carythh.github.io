@@ -6,20 +6,24 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>ceshiblog | 技术博客</title>
+  <title>BUG：android.view.inputmethod.InputConnectionWrapper.finishComposingText | 技术博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="不积跬步无以至千里">
+  <meta name="description" content="android开发遇到的bug：android.view.inputmethod.InputConnectionWrapper.finishComposingText
+  解决方法：重写edittext重写并修改方法：
+@Overridepublic InputConnection onCreateInputConnection(EditorInfo outAttrs) { InputConn">
 <meta property="og:type" content="article">
-<meta property="og:title" content="ceshiblog">
+<meta property="og:title" content="BUG：android.view.inputmethod.InputConnectionWrapper.finishComposingText">
 <meta property="og:url" content="http://yoursite.com/2017/01/03/ceshiblog/index.html">
 <meta property="og:site_name" content="技术博客">
-<meta property="og:description" content="不积跬步无以至千里">
-<meta property="og:updated_time" content="2017-01-03T08:48:24.000Z">
+<meta property="og:description" content="android开发遇到的bug：android.view.inputmethod.InputConnectionWrapper.finishComposingText
+  解决方法：重写edittext重写并修改方法：
+@Overridepublic InputConnection onCreateInputConnection(EditorInfo outAttrs) { InputConn">
+<meta property="og:updated_time" content="2017-01-04T03:30:07.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="ceshiblog">
-<meta name="twitter:description" content="不积跬步无以至千里">
-  
-    <link rel="alternative" href="/atom.xml" title="技术博客" type="application/atom+xml">
+<meta name="twitter:title" content="BUG：android.view.inputmethod.InputConnectionWrapper.finishComposingText">
+<meta name="twitter:description" content="android开发遇到的bug：android.view.inputmethod.InputConnectionWrapper.finishComposingText
+  解决方法：重写edittext重写并修改方法：
+@Overridepublic InputConnection onCreateInputConnection(EditorInfo outAttrs) { InputConn">
   
   
     <link rel="icon" href="/favicon.png">
@@ -60,7 +64,7 @@
 			
 				<li><a href="/">主页</a></li>
 	        
-				<li><a href="/tags/随笔/">随笔</a></li>
+				<li><a href="/tags/">随笔</a></li>
 	        
 			</ul>
 		</nav>
@@ -82,13 +86,7 @@
 		<nav class="header-nav">
 			<div class="social">
 				
-					<a class="github" target="_blank" href="#" title="github"><i class="icon-github"></i></a>
-		        
-					<a class="weibo" target="_blank" href="#" title="weibo"><i class="icon-weibo"></i></a>
-		        
-					<a class="rss" target="_blank" href="#" title="rss"><i class="icon-rss"></i></a>
-		        
-					<a class="zhihu" target="_blank" href="#" title="zhihu"><i class="icon-zhihu"></i></a>
+					<a class="github" target="_blank" href="https://github.com/carythh" title="github"><i class="icon-github"></i></a>
 		        
 			</div>
 		</nav>
@@ -125,13 +123,7 @@
 			<nav class="header-nav">
 				<div class="social">
 					
-						<a class="github" target="_blank" href="#" title="github"><i class="icon-github"></i></a>
-			        
-						<a class="weibo" target="_blank" href="#" title="weibo"><i class="icon-weibo"></i></a>
-			        
-						<a class="rss" target="_blank" href="#" title="rss"><i class="icon-rss"></i></a>
-			        
-						<a class="zhihu" target="_blank" href="#" title="zhihu"><i class="icon-zhihu"></i></a>
+						<a class="github" target="_blank" href="https://github.com/carythh" title="github"><i class="icon-github"></i></a>
 			        
 				</div>
 			</nav>
@@ -142,7 +134,7 @@
 				
 					<li style="width: 50%"><a href="/">主页</a></li>
 		        
-					<li style="width: 50%"><a href="/tags/随笔/">随笔</a></li>
+					<li style="width: 50%"><a href="/tags/">随笔</a></li>
 		        
 				</ul>
 			</nav>
@@ -164,7 +156,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      ceshiblog
+      BUG：android.view.inputmethod.InputConnectionWrapper.finishComposingText
     </h1>
   
 
@@ -177,7 +169,10 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <p>  android开发遇到的bug：android.view.inputmethod.InputConnectionWrapper.finishComposingText</p>
+<p>  解决方法：<br>重写edittext重写并修改方法：</p>
+<p>@Override<br>public InputConnection onCreateInputConnection(EditorInfo outAttrs) {<br> InputConnection inputConnection = super.onCreateInputConnection(outAttrs);<br> if (inputConnection == null)<br> {<br>   return null;<br> }<br> return new mInputConnecttion(super.onCreateInputConnection(outAttrs),<br> false);<br>}</p>
+
       
 
       
@@ -322,7 +317,7 @@
 		open_in_new: false,
 		root: "/",
 		innerArchive: true,
-		showTags: false
+		showTags: true
 	}
 </script>
 
@@ -444,27 +439,7 @@
         <ul class="search-ul">
           
             <li class="search-li">
-              <a href="http://localhost:4000/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接1</a>
-            </li>
-          
-            <li class="search-li">
-              <a href="http://localhost:4000/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接2</a>
-            </li>
-          
-            <li class="search-li">
-              <a href="http://localhost:4000/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接3</a>
-            </li>
-          
-            <li class="search-li">
-              <a href="http://localhost:4000/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接4</a>
-            </li>
-          
-            <li class="search-li">
-              <a href="http://localhost:4000/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接5</a>
-            </li>
-          
-            <li class="search-li">
-              <a href="http://localhost:4000/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接6</a>
+              <a href="https://github.com/carythh" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接1</a>
             </li>
           
         </ul>
@@ -475,7 +450,7 @@
     
     	<section class="tools-section tools-section-me" q-show="aboutme">
   	  	
-  	  		<div class="aboutme-wrap" id="js-aboutme">很惭愧&lt;br&gt;&lt;br&gt;只做了一点微小的工作&lt;br&gt;谢谢大家</div>
+  	  		<div class="aboutme-wrap" id="js-aboutme">坚持每天努力一点点&lt;br&gt;每天都会进步一点点&lt;br&gt;人生也会精彩一点点&lt;br&gt;努力吧&lt;br&gt;生活的理想就是为了理想的生活</div>
   	  	
     	</section>
     
