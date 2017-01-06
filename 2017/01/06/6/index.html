@@ -6,18 +6,21 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>6 | 心火博客</title>
+  <title>BUG:EditText.setOnKeyListener后删除失效 | 心火博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="不积跬步无以至千里">
+  <meta name="description" content="EditText.setOnKeyListener后删除失效， return true改为    return false
+EditText.setOnKeyListener(new OnKeyListener() {    public boolean onKey(View v, int keyCode, KeyEvent event) {        if(keyCode == KeyEve">
 <meta property="og:type" content="article">
-<meta property="og:title" content="6">
+<meta property="og:title" content="BUG:EditText.setOnKeyListener后删除失效">
 <meta property="og:url" content="http://yoursite.com/2017/01/06/6/index.html">
 <meta property="og:site_name" content="心火博客">
-<meta property="og:description" content="不积跬步无以至千里">
-<meta property="og:updated_time" content="2017-01-06T04:51:16.000Z">
+<meta property="og:description" content="EditText.setOnKeyListener后删除失效， return true改为    return false
+EditText.setOnKeyListener(new OnKeyListener() {    public boolean onKey(View v, int keyCode, KeyEvent event) {        if(keyCode == KeyEve">
+<meta property="og:updated_time" content="2017-01-06T05:08:12.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="6">
-<meta name="twitter:description" content="不积跬步无以至千里">
+<meta name="twitter:title" content="BUG:EditText.setOnKeyListener后删除失效">
+<meta name="twitter:description" content="EditText.setOnKeyListener后删除失效， return true改为    return false
+EditText.setOnKeyListener(new OnKeyListener() {    public boolean onKey(View v, int keyCode, KeyEvent event) {        if(keyCode == KeyEve">
   
   
     <link rel="icon" href="/favicon.png">
@@ -134,7 +137,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      6
+      BUG:EditText.setOnKeyListener后删除失效
     </h1>
   
 
@@ -147,7 +150,14 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <p>EditText.setOnKeyListener后删除失效，<br> return true改为    return false</p>
+<p>EditText.setOnKeyListener(new OnKeyListener() {<br>    public boolean onKey(View v, int keyCode, KeyEvent event) {<br>        if(keyCode == KeyEvent.KEYCODE_DEL) { </p>
+<pre><code>        editText.requestFocus();
+    } 
+    return true; 
+} 
+</code></pre><p>});</p>
+
       
 
       
@@ -249,14 +259,14 @@
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          7
+          BUG:surfaceview组件的surfaceCreated()不被调用的
         
       </div>
     </a>
   
   
     <a href="/2017/01/06/5/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">5</div>
+      <div class="article-nav-title">BUG:android 点击控件ScrollView自动滚动</div>
       <i class="icon-circle-right"></i>
     </a>
   

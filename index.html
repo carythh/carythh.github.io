@@ -135,7 +135,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/01/06/19/">19</a>
+      <a class="article-title" href="/2017/01/06/19/">BUG:Error:(1, 0) Plugin with id &#39;com.android.application&#39; not found</a>
     </h1>
   
 
@@ -148,7 +148,10 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <p>Plugin with id ‘com.android.application’ not found<br>解决方法：<br>在build文件添加：</p>
+<p>buildscript {<br>repositories {<br>jcenter()<br>}<br>dependencies {<br>classpath ‘com.android.tools.build:gradle:2.1.0’</p>
+<p>}<br>}</p>
+
       
 
       
@@ -185,7 +188,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/01/06/18/">18</a>
+      <a class="article-title" href="/2017/01/06/18/">BUG:android studio 出现file no png</a>
     </h1>
   
 
@@ -198,7 +201,10 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <p>android studio 出现file no png </p>
+<p>1:如果确定是图片问题直接更换图片</p>
+<p>2:直接设置：<br>android {<br>…<br>aaptOptions {         cruncherEnabled = false     }<br>….<br>}</p>
+
       
 
       
@@ -235,7 +241,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/01/06/17/">17</a>
+      <a class="article-title" href="/2017/01/06/17/">BUG:org.apache.http.Header这个类找不到的情况，原因是在api 23中，不提供org.apache.http.*(只保留几个类)</a>
     </h1>
   
 
@@ -248,7 +254,10 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <p>org.apache.http.Header这个类找不到的情况，原因是在api 23中，不提供org.apache.http.*(只保留几个类)<br>1:Android Studion解决办法：</p>
+<p>android {<br>   useLibrary ‘org.apache.http.legacy’<br>}<br>2:eclipse：</p>
+<p>Eclipse 解决办法<br>libs中加入<br>org.apache.http.legacy.jar</p>
+
       
 
       
@@ -278,56 +287,6 @@
 
 
   
-    <article id="post-16" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/01/06/16/">16</a>
-    </h1>
-  
-
-        
-        <a href="/2017/01/06/16/" class="archive-article-date">
-  	<time datetime="2017-01-06T04:52:09.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-01-06</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/01/06/16/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
     <article id="post-15" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -335,7 +294,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/01/06/15/">15</a>
+      <a class="article-title" href="/2017/01/06/15/">BUG:edittext 与scorllview冲突</a>
     </h1>
   
 
@@ -348,7 +307,16 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <p>@Override<br>public boolean onTouch(View view, MotionEvent motionEvent) {<br>//触摸的是EditText并且当前EditText可以滚动则将事件交给EditText处理；否则将事件交由其父类处理<br>if ((view.getId() == R.id.edit_text &amp;&amp; canVerticalScroll(mEditText))) {<br>view.getParent().requestDisallowInterceptTouchEvent(true);<br>if (motionEvent.getAction() == MotionEvent.ACTION_UP) {<br>view.getParent().requestDisallowInterceptTouchEvent(false);<br>}<br>}<br>return false;<br>}</p>
+<p>/**</p>
+<ul>
+<li>EditText竖直方向是否可以滚动</li>
+<li>@param editText  需要判断的EditText</li>
+<li>@return  true：可以滚动   false：不可以滚动<br>*/<br>private boolean canVerticalScroll(EditText editText) {<br>//滚动的距离<br>int scrollY = editText.getScrollY();<br>//控件内容的总高度<br>int scrollRange = editText.getLayout().getHeight();<br>//控件实际显示的高度<br>int scrollExtent = editText.getHeight() - editText.getCompoundPaddingTop() -editText.getCompoundPaddingBottom();<br>//控件内容总高度与实际显示高度的差值<br>int scrollDifference = scrollRange - scrollExtent;</li>
+</ul>
+<p>if(scrollDifference == 0) {<br>return false;<br>}</p>
+<p>return (scrollY &gt; 0) || (scrollY &lt; scrollDifference - 1);<br>}</p>
+
       
 
       
@@ -378,56 +346,6 @@
 
 
   
-    <article id="post-54" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/01/06/54/">54</a>
-    </h1>
-  
-
-        
-        <a href="/2017/01/06/54/" class="archive-article-date">
-  	<time datetime="2017-01-06T04:52:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-01-06</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/01/06/54/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
     <article id="post-14" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -435,7 +353,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/01/06/14/">14</a>
+      <a class="article-title" href="/2017/01/06/14/">BUG:textview 设置中线，下滑线</a>
     </h1>
   
 
@@ -448,7 +366,11 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <p>textview 设置中线，下滑线 </p>
+<p>textview.getPaint().setFlags(Paint. STRIKE_THRU_TEXT_FLAG ); //中间横线 </p>
+<p>textview.getPaint().setFlags(Paint.UNDERLINE_TEXT_FLAG);//下划线</p>
+<p>textview.getPaint().setAntiAlias(true);// 抗锯齿 </p>
+
       
 
       
@@ -485,7 +407,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/01/06/13/">13</a>
+      <a class="article-title" href="/2017/01/06/13/">BUG:安卓手机防止截屏功能</a>
     </h1>
   
 
@@ -498,7 +420,10 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <p>安卓手机防止截屏功能:</p>
+<p>oncreat()方法中添加<br>Window win = getWindow();</p>
+<p>win.addFlags(WindowManager.LayoutParams.FLAG_SECURE);</p>
+
       
 
       
@@ -528,56 +453,6 @@
 
 
   
-    <article id="post-12" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/01/06/12/">12</a>
-    </h1>
-  
-
-        
-        <a href="/2017/01/06/12/" class="archive-article-date">
-  	<time datetime="2017-01-06T04:51:49.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-01-06</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/01/06/12/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
     <article id="post-11" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -585,7 +460,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/01/06/11/">11</a>
+      <a class="article-title" href="/2017/01/06/11/">BUG:图片错位</a>
     </h1>
   
 
@@ -598,7 +473,8 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <p>图片错位问题<br>1:去掉复用<br>2:使用复用，但是给image view设置TAG<br>首先给imageview设置一个tag，这个tag中设置的是url,<br>然后在加载的时候取得这个url和要加载那position中的url对比,<br>如果不相同就加载,相同就是复用以前的就不加载了</p>
+
       
 
       
@@ -628,9 +504,164 @@
 
 
   
+    <article id="post-10" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/01/06/10/">BUG:蓝牙扫描枪连接安卓手机导致页面重新刷新</a>
+    </h1>
+  
+
+        
+        <a href="/2017/01/06/10/" class="archive-article-date">
+  	<time datetime="2017-01-06T04:51:33.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-01-06</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>蓝牙扫描枪连接安卓手机导致页面重新刷新问题<br>原因：蓝牙扫码枪就是相当于手机的外部键盘，弹出退出导致页面oncreate重写执行，与横屏，竖屏一个意思<br>keyboard这个就是物理键盘，蓝牙扫码枪就是相当于手机的外部键盘<br>解决：<br>mainfest文件添加：<br>android:configChanges=”keyboard|keyboardHidden|orientation|screenSize”<br>重写@Override<br>public void onConfigurationChanged(Configuration newConfig) {<br>super.onConfigurationChanged(newConfig);<br>//TODO 处理<br>}进行拦截处理</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/01/06/10/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
+    <article id="post-9" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/01/06/9/">BUG:底部栏被手机菜单遮挡(华为手机)</a>
+    </h1>
+  
+
+        
+        <a href="/2017/01/06/9/" class="archive-article-date">
+  	<time datetime="2017-01-06T04:51:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-01-06</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>底部栏被手机菜单遮挡(华为手机)<br>解决：</p>
+<p>   getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);</p>
+<p>getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION);</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/01/06/9/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
+    <article id="post-8" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/01/06/8/">BUG:Zxing二维码重复扫描，不退出。</a>
+    </h1>
+  
+
+        
+        <a href="/2017/01/06/8/" class="archive-article-date">
+  	<time datetime="2017-01-06T04:51:24.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-01-06</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>if (handler != null){<br>handler.restartPreviewAndDecode();<br>}<br>restartPreviewAndDecode()这个方法在CaptureActivityHandler类中是private的，把它改为public 就可以引用了</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/01/06/8/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
   
     <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
     </nav>
   
 

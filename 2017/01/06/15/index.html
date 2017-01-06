@@ -6,18 +6,18 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>15 | 心火博客</title>
+  <title>BUG:edittext 与scorllview冲突 | 心火博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="不积跬步无以至千里">
+  <meta name="description" content="@Overridepublic boolean onTouch(View view, MotionEvent motionEvent) {//触摸的是EditText并且当前EditText可以滚动则将事件交给EditText处理；否则将事件交由其父类处理if ((view.getId() == R.id.edit_text &amp;amp;&amp;amp; canVerticalScroll(mEditTe">
 <meta property="og:type" content="article">
-<meta property="og:title" content="15">
+<meta property="og:title" content="BUG:edittext 与scorllview冲突">
 <meta property="og:url" content="http://yoursite.com/2017/01/06/15/index.html">
 <meta property="og:site_name" content="心火博客">
-<meta property="og:description" content="不积跬步无以至千里">
-<meta property="og:updated_time" content="2017-01-06T04:52:06.000Z">
+<meta property="og:description" content="@Overridepublic boolean onTouch(View view, MotionEvent motionEvent) {//触摸的是EditText并且当前EditText可以滚动则将事件交给EditText处理；否则将事件交由其父类处理if ((view.getId() == R.id.edit_text &amp;amp;&amp;amp; canVerticalScroll(mEditTe">
+<meta property="og:updated_time" content="2017-01-06T05:18:55.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="15">
-<meta name="twitter:description" content="不积跬步无以至千里">
+<meta name="twitter:title" content="BUG:edittext 与scorllview冲突">
+<meta name="twitter:description" content="@Overridepublic boolean onTouch(View view, MotionEvent motionEvent) {//触摸的是EditText并且当前EditText可以滚动则将事件交给EditText处理；否则将事件交由其父类处理if ((view.getId() == R.id.edit_text &amp;amp;&amp;amp; canVerticalScroll(mEditTe">
   
   
     <link rel="icon" href="/favicon.png">
@@ -134,7 +134,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      15
+      BUG:edittext 与scorllview冲突
     </h1>
   
 
@@ -147,7 +147,16 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <p>@Override<br>public boolean onTouch(View view, MotionEvent motionEvent) {<br>//触摸的是EditText并且当前EditText可以滚动则将事件交给EditText处理；否则将事件交由其父类处理<br>if ((view.getId() == R.id.edit_text &amp;&amp; canVerticalScroll(mEditText))) {<br>view.getParent().requestDisallowInterceptTouchEvent(true);<br>if (motionEvent.getAction() == MotionEvent.ACTION_UP) {<br>view.getParent().requestDisallowInterceptTouchEvent(false);<br>}<br>}<br>return false;<br>}</p>
+<p>/**</p>
+<ul>
+<li>EditText竖直方向是否可以滚动</li>
+<li>@param editText  需要判断的EditText</li>
+<li>@return  true：可以滚动   false：不可以滚动<br>*/<br>private boolean canVerticalScroll(EditText editText) {<br>//滚动的距离<br>int scrollY = editText.getScrollY();<br>//控件内容的总高度<br>int scrollRange = editText.getLayout().getHeight();<br>//控件实际显示的高度<br>int scrollExtent = editText.getHeight() - editText.getCompoundPaddingTop() -editText.getCompoundPaddingBottom();<br>//控件内容总高度与实际显示高度的差值<br>int scrollDifference = scrollRange - scrollExtent;</li>
+</ul>
+<p>if(scrollDifference == 0) {<br>return false;<br>}</p>
+<p>return (scrollY &gt; 0) || (scrollY &lt; scrollDifference - 1);<br>}</p>
+
       
 
       
@@ -245,18 +254,18 @@
   
 <nav id="article-nav">
   
-    <a href="/2017/01/06/16/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2017/01/06/17/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          16
+          BUG:org.apache.http.Header这个类找不到的情况，原因是在api 23中，不提供org.apache.http.*(只保留几个类)
         
       </div>
     </a>
   
   
-    <a href="/2017/01/06/54/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">54</div>
+    <a href="/2017/01/06/14/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">BUG:textview 设置中线，下滑线</div>
       <i class="icon-circle-right"></i>
     </a>
   

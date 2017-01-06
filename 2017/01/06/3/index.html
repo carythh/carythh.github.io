@@ -6,18 +6,24 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>3 | 心火博客</title>
+  <title>BUG:sql使用 获取制定行数等等 | 心火博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="不积跬步无以至千里">
+  <meta name="description" content="有的时候我们需要查询出的数据是随机排序的，newid()函数在扫描每条记录时会生成一个随机值，这个随机数没有大小写顺序，因此根据这个数排序，就可以将数据进行随机排序。
+select *,newid() random from UserInfo order by random
+我们这里需要的不是主键编号在某一取值范围内的数据，而是行号在指定范围内，还是上面的Row_Number()函数。获取制定行数">
 <meta property="og:type" content="article">
-<meta property="og:title" content="3">
+<meta property="og:title" content="BUG:sql使用 获取制定行数等等">
 <meta property="og:url" content="http://yoursite.com/2017/01/06/3/index.html">
 <meta property="og:site_name" content="心火博客">
-<meta property="og:description" content="不积跬步无以至千里">
-<meta property="og:updated_time" content="2017-01-06T04:51:03.000Z">
+<meta property="og:description" content="有的时候我们需要查询出的数据是随机排序的，newid()函数在扫描每条记录时会生成一个随机值，这个随机数没有大小写顺序，因此根据这个数排序，就可以将数据进行随机排序。
+select *,newid() random from UserInfo order by random
+我们这里需要的不是主键编号在某一取值范围内的数据，而是行号在指定范围内，还是上面的Row_Number()函数。获取制定行数">
+<meta property="og:updated_time" content="2017-01-06T05:01:54.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="3">
-<meta name="twitter:description" content="不积跬步无以至千里">
+<meta name="twitter:title" content="BUG:sql使用 获取制定行数等等">
+<meta name="twitter:description" content="有的时候我们需要查询出的数据是随机排序的，newid()函数在扫描每条记录时会生成一个随机值，这个随机数没有大小写顺序，因此根据这个数排序，就可以将数据进行随机排序。
+select *,newid() random from UserInfo order by random
+我们这里需要的不是主键编号在某一取值范围内的数据，而是行号在指定范围内，还是上面的Row_Number()函数。获取制定行数">
   
   
     <link rel="icon" href="/favicon.png">
@@ -134,7 +140,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      3
+      BUG:sql使用 获取制定行数等等
     </h1>
   
 
@@ -147,7 +153,12 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <p>有的时候我们需要查询出的数据是随机排序的，<br>newid()函数在扫描每条记录时会生成一个随机值，这个随机数没有大小写顺序，因此根据这个数排序，就可以将数据进行随机排序。</p>
+<p>select *,newid() random from UserInfo order by random</p>
+<p>我们这里需要的不是主键编号在某一取值范围内的数据，而是行号在指定范围内，还是上面的Row_Number()函数。<br>获取制定行数</p>
+<p>SELECT dwID,szName FROM DevItem ORDER BY dwID LIMIT 0,50 </p>
+<p>select <em> from (select row_number() over (order by UseriD) as rowNum,</em> from UserInfo) as t where rowNum between 10 and 20</p>
+
       
 
       
@@ -249,14 +260,14 @@
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          4
+          BUG:android 两布局重叠,如何让下层不响应事件
         
       </div>
     </a>
   
   
     <a href="/2017/01/06/2/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">2</div>
+      <div class="article-nav-title">BUG:Couldn&#39;t read row 0, col 2 from CursorWindow.</div>
       <i class="icon-circle-right"></i>
     </a>
   

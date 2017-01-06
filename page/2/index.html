@@ -128,156 +128,6 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-10" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/01/06/10/">10</a>
-    </h1>
-  
-
-        
-        <a href="/2017/01/06/10/" class="archive-article-date">
-  	<time datetime="2017-01-06T04:51:33.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-01-06</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/01/06/10/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
-    <article id="post-9" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/01/06/9/">9</a>
-    </h1>
-  
-
-        
-        <a href="/2017/01/06/9/" class="archive-article-date">
-  	<time datetime="2017-01-06T04:51:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-01-06</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/01/06/9/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
-    <article id="post-8" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/01/06/8/">8</a>
-    </h1>
-  
-
-        
-        <a href="/2017/01/06/8/" class="archive-article-date">
-  	<time datetime="2017-01-06T04:51:24.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-01-06</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/01/06/8/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
     <article id="post-7" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -285,7 +135,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/01/06/7/">7</a>
+      <a class="article-title" href="/2017/01/06/7/">BUG:surfaceview组件的surfaceCreated()不被调用的</a>
     </h1>
   
 
@@ -298,7 +148,11 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <p>解决方案：1. 在surfaceview里面手动去添加一个子控件，以触发surfaceview做懒初始化。<br>但是这样做有时候会因为我的所有渲染逻辑是在native,所以不是很好。</p>
+<ol>
+<li>在surfaceview的构造函数里面加入这句话也可以解决：<br>getHolder().addCallback(this); </li>
+</ol>
+
       
 
       
@@ -335,7 +189,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/01/06/6/">6</a>
+      <a class="article-title" href="/2017/01/06/6/">BUG:EditText.setOnKeyListener后删除失效</a>
     </h1>
   
 
@@ -348,7 +202,14 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <p>EditText.setOnKeyListener后删除失效，<br> return true改为    return false</p>
+<p>EditText.setOnKeyListener(new OnKeyListener() {<br>    public boolean onKey(View v, int keyCode, KeyEvent event) {<br>        if(keyCode == KeyEvent.KEYCODE_DEL) { </p>
+<pre><code>        editText.requestFocus();
+    } 
+    return true; 
+} 
+</code></pre><p>});</p>
+
       
 
       
@@ -385,7 +246,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/01/06/5/">5</a>
+      <a class="article-title" href="/2017/01/06/5/">BUG:android 点击控件ScrollView自动滚动</a>
     </h1>
   
 
@@ -398,7 +259,8 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <p>原因：ScrollView与子控件触摸事件冲突<br>解决：重写 ScrollView<br>@Override<br>protected int computeScrollDeltaToGetChildRectOnScreen(Rect rect) {<br>//return super.computeScrollDeltaToGetChildRectOnScreen(rect);<br>//直接设置返回0<br>return 0;<br>}</p>
+
       
 
       
@@ -435,7 +297,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/01/06/4/">4</a>
+      <a class="article-title" href="/2017/01/06/4/">BUG:android 两布局重叠,如何让下层不响应事件</a>
     </h1>
   
 
@@ -448,7 +310,12 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <p>1:设置上层布局的属性   android:clickable=”true”就行了   </p>
+<p>2:重写布局layout 设置事件拦截<br>public class MylinearLayout extends LinearLayout {<br>public MylinearLayout(Context context, AttributeSet attrs, int defStyleAttr) {<br>super(context, attrs, defStyleAttr);<br>}</p>
+<p>public MylinearLayout(Context context) {<br>super(context);<br>}</p>
+<p>public MylinearLayout(Context context, AttributeSet attrs) {<br>super(context, attrs);<br>}</p>
+<p>@Override<br>public boolean onInterceptTouchEvent(MotionEvent ev) {<br>//return super.onInterceptTouchEvent(ev);<br>//直接设置返回true<br>return true;<br>}<br>}</p>
+
       
 
       
@@ -485,7 +352,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/01/06/3/">3</a>
+      <a class="article-title" href="/2017/01/06/3/">BUG:sql使用 获取制定行数等等</a>
     </h1>
   
 
@@ -498,7 +365,12 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <p>有的时候我们需要查询出的数据是随机排序的，<br>newid()函数在扫描每条记录时会生成一个随机值，这个随机数没有大小写顺序，因此根据这个数排序，就可以将数据进行随机排序。</p>
+<p>select *,newid() random from UserInfo order by random</p>
+<p>我们这里需要的不是主键编号在某一取值范围内的数据，而是行号在指定范围内，还是上面的Row_Number()函数。<br>获取制定行数</p>
+<p>SELECT dwID,szName FROM DevItem ORDER BY dwID LIMIT 0,50 </p>
+<p>select <em> from (select row_number() over (order by UseriD) as rowNum,</em> from UserInfo) as t where rowNum between 10 and 20</p>
+
       
 
       
@@ -535,7 +407,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/01/06/2/">2</a>
+      <a class="article-title" href="/2017/01/06/2/">BUG:Couldn&#39;t read row 0, col 2 from CursorWindow.</a>
     </h1>
   
 
@@ -548,7 +420,8 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <p>sql：Couldn’t read row 0, col 2 from CursorWindow.  Make sure the Cursor is initialized correctly before accessing data from it.<br>cursor.getInt(cursor.getColumnIndex(“xxx”));<br> 原因：获取了一个不存在的子段<br> 检查字段去除不存在的字段</p>
+
       
 
       
@@ -585,7 +458,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/01/06/1/">1</a>
+      <a class="article-title" href="/2017/01/06/1/">BUG:android.view.inputmethod.InputConnectionWrapper.finishComposingText</a>
     </h1>
   
 
@@ -598,7 +471,8 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <p>重写edittext重写并修改方法：<br>@Override<br>public InputConnection onCreateInputConnection(EditorInfo outAttrs) {<br>InputConnection inputConnection = super.onCreateInputConnection(outAttrs);<br>if (inputConnection == null)<br>{<br>return null;<br>}<br>return new mInputConnecttion(super.onCreateInputConnection(outAttrs),<br>false);<br>}</p>
+
       
 
       
@@ -628,9 +502,113 @@
 
 
   
+    <article id="post-ceshiblog" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/01/03/ceshiblog/">BUG：android.view.inputmethod.InputConnectionWrapper.finishComposingText</a>
+    </h1>
+  
+
+        
+        <a href="/2017/01/03/ceshiblog/" class="archive-article-date">
+  	<time datetime="2017-01-03T08:48:24.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-01-03</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>  android开发遇到的bug：android.view.inputmethod.InputConnectionWrapper.finishComposingText</p>
+<p>  解决方法：<br>重写edittext重写并修改方法：</p>
+<p>@Override<br>public InputConnection onCreateInputConnection(EditorInfo outAttrs) {<br> InputConnection inputConnection = super.onCreateInputConnection(outAttrs);<br> if (inputConnection == null)<br> {<br>   return null;<br> }<br> return new mInputConnecttion(super.onCreateInputConnection(outAttrs),<br> false);<br>}</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/01/03/ceshiblog/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
+    <article id="post-hello-world" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/01/03/hello-world/">移动AR未来</a>
+    </h1>
+  
+
+        
+        <a href="/2017/01/03/hello-world/" class="archive-article-date">
+  	<time datetime="2017-01-03T08:33:24.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-01-03</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>   增强现实技术（Augmented Reality，简称 AR），<br>是一种实时地计算摄影机影像的位置及角度并加上相应图像、视频、3D模型的技术，<br>这种技术的目标是在屏幕上把虚拟世界套在现实世界并进行互动。<br>这种技术由1990年提出。随着随身电子产品CPU运算能力的提升，预期增强现实的用途将会越来越广。<br>目前国外，国内很火热，涉及多个领域，游戏，电商，影视等。<br>AR发展迅速 主要游戏领域 ，支付宝今年AR红包更进一步推动其发展</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/01/03/hello-world/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/3/">Next &raquo;</a>
+      <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
     </nav>
   
 

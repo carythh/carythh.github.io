@@ -6,18 +6,21 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>4 | 心火博客</title>
+  <title>BUG:android 两布局重叠,如何让下层不响应事件 | 心火博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="不积跬步无以至千里">
+  <meta name="description" content="1:设置上层布局的属性   android:clickable=”true”就行了   
+2:重写布局layout 设置事件拦截public class MylinearLayout extends LinearLayout {public MylinearLayout(Context context, AttributeSet attrs, int defStyleAttr) {super(co">
 <meta property="og:type" content="article">
-<meta property="og:title" content="4">
+<meta property="og:title" content="BUG:android 两布局重叠,如何让下层不响应事件">
 <meta property="og:url" content="http://yoursite.com/2017/01/06/4/index.html">
 <meta property="og:site_name" content="心火博客">
-<meta property="og:description" content="不积跬步无以至千里">
-<meta property="og:updated_time" content="2017-01-06T04:51:07.000Z">
+<meta property="og:description" content="1:设置上层布局的属性   android:clickable=”true”就行了   
+2:重写布局layout 设置事件拦截public class MylinearLayout extends LinearLayout {public MylinearLayout(Context context, AttributeSet attrs, int defStyleAttr) {super(co">
+<meta property="og:updated_time" content="2017-01-06T05:05:54.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="4">
-<meta name="twitter:description" content="不积跬步无以至千里">
+<meta name="twitter:title" content="BUG:android 两布局重叠,如何让下层不响应事件">
+<meta name="twitter:description" content="1:设置上层布局的属性   android:clickable=”true”就行了   
+2:重写布局layout 设置事件拦截public class MylinearLayout extends LinearLayout {public MylinearLayout(Context context, AttributeSet attrs, int defStyleAttr) {super(co">
   
   
     <link rel="icon" href="/favicon.png">
@@ -134,7 +137,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      4
+      BUG:android 两布局重叠,如何让下层不响应事件
     </h1>
   
 
@@ -147,7 +150,12 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <p>1:设置上层布局的属性   android:clickable=”true”就行了   </p>
+<p>2:重写布局layout 设置事件拦截<br>public class MylinearLayout extends LinearLayout {<br>public MylinearLayout(Context context, AttributeSet attrs, int defStyleAttr) {<br>super(context, attrs, defStyleAttr);<br>}</p>
+<p>public MylinearLayout(Context context) {<br>super(context);<br>}</p>
+<p>public MylinearLayout(Context context, AttributeSet attrs) {<br>super(context, attrs);<br>}</p>
+<p>@Override<br>public boolean onInterceptTouchEvent(MotionEvent ev) {<br>//return super.onInterceptTouchEvent(ev);<br>//直接设置返回true<br>return true;<br>}<br>}</p>
+
       
 
       
@@ -249,14 +257,14 @@
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          5
+          BUG:android 点击控件ScrollView自动滚动
         
       </div>
     </a>
   
   
     <a href="/2017/01/06/3/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">3</div>
+      <div class="article-nav-title">BUG:sql使用 获取制定行数等等</div>
       <i class="icon-circle-right"></i>
     </a>
   

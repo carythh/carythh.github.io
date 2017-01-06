@@ -6,18 +6,18 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>10 | 心火博客</title>
+  <title>BUG:蓝牙扫描枪连接安卓手机导致页面重新刷新 | 心火博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="不积跬步无以至千里">
+  <meta name="description" content="蓝牙扫描枪连接安卓手机导致页面重新刷新问题原因：蓝牙扫码枪就是相当于手机的外部键盘，弹出退出导致页面oncreate重写执行，与横屏，竖屏一个意思keyboard这个就是物理键盘，蓝牙扫码枪就是相当于手机的外部键盘解决：mainfest文件添加：android:configChanges=”keyboard|keyboardHidden|orientation|screenSize”重写@Over">
 <meta property="og:type" content="article">
-<meta property="og:title" content="10">
+<meta property="og:title" content="BUG:蓝牙扫描枪连接安卓手机导致页面重新刷新">
 <meta property="og:url" content="http://yoursite.com/2017/01/06/10/index.html">
 <meta property="og:site_name" content="心火博客">
-<meta property="og:description" content="不积跬步无以至千里">
-<meta property="og:updated_time" content="2017-01-06T04:51:33.000Z">
+<meta property="og:description" content="蓝牙扫描枪连接安卓手机导致页面重新刷新问题原因：蓝牙扫码枪就是相当于手机的外部键盘，弹出退出导致页面oncreate重写执行，与横屏，竖屏一个意思keyboard这个就是物理键盘，蓝牙扫码枪就是相当于手机的外部键盘解决：mainfest文件添加：android:configChanges=”keyboard|keyboardHidden|orientation|screenSize”重写@Over">
+<meta property="og:updated_time" content="2017-01-06T05:13:59.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="10">
-<meta name="twitter:description" content="不积跬步无以至千里">
+<meta name="twitter:title" content="BUG:蓝牙扫描枪连接安卓手机导致页面重新刷新">
+<meta name="twitter:description" content="蓝牙扫描枪连接安卓手机导致页面重新刷新问题原因：蓝牙扫码枪就是相当于手机的外部键盘，弹出退出导致页面oncreate重写执行，与横屏，竖屏一个意思keyboard这个就是物理键盘，蓝牙扫码枪就是相当于手机的外部键盘解决：mainfest文件添加：android:configChanges=”keyboard|keyboardHidden|orientation|screenSize”重写@Over">
   
   
     <link rel="icon" href="/favicon.png">
@@ -134,7 +134,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      10
+      BUG:蓝牙扫描枪连接安卓手机导致页面重新刷新
     </h1>
   
 
@@ -147,7 +147,8 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <p>蓝牙扫描枪连接安卓手机导致页面重新刷新问题<br>原因：蓝牙扫码枪就是相当于手机的外部键盘，弹出退出导致页面oncreate重写执行，与横屏，竖屏一个意思<br>keyboard这个就是物理键盘，蓝牙扫码枪就是相当于手机的外部键盘<br>解决：<br>mainfest文件添加：<br>android:configChanges=”keyboard|keyboardHidden|orientation|screenSize”<br>重写@Override<br>public void onConfigurationChanged(Configuration newConfig) {<br>super.onConfigurationChanged(newConfig);<br>//TODO 处理<br>}进行拦截处理</p>
+
       
 
       
@@ -249,14 +250,14 @@
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          11
+          BUG:图片错位
         
       </div>
     </a>
   
   
     <a href="/2017/01/06/9/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">9</div>
+      <div class="article-nav-title">BUG:底部栏被手机菜单遮挡(华为手机)</div>
       <i class="icon-circle-right"></i>
     </a>
   

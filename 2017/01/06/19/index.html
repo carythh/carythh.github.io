@@ -6,18 +6,24 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>19 | 心火博客</title>
+  <title>BUG:Error:(1, 0) Plugin with id &#39;com.android.application&#39; not found | 心火博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="不积跬步无以至千里">
+  <meta name="description" content="Plugin with id ‘com.android.application’ not found解决方法：在build文件添加：
+buildscript {repositories {jcenter()}dependencies {classpath ‘com.android.tools.build:gradle:2.1.0’
+}}">
 <meta property="og:type" content="article">
-<meta property="og:title" content="19">
+<meta property="og:title" content="BUG:Error:(1, 0) Plugin with id 'com.android.application' not found">
 <meta property="og:url" content="http://yoursite.com/2017/01/06/19/index.html">
 <meta property="og:site_name" content="心火博客">
-<meta property="og:description" content="不积跬步无以至千里">
-<meta property="og:updated_time" content="2017-01-06T04:52:20.000Z">
+<meta property="og:description" content="Plugin with id ‘com.android.application’ not found解决方法：在build文件添加：
+buildscript {repositories {jcenter()}dependencies {classpath ‘com.android.tools.build:gradle:2.1.0’
+}}">
+<meta property="og:updated_time" content="2017-01-06T05:25:50.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="19">
-<meta name="twitter:description" content="不积跬步无以至千里">
+<meta name="twitter:title" content="BUG:Error:(1, 0) Plugin with id 'com.android.application' not found">
+<meta name="twitter:description" content="Plugin with id ‘com.android.application’ not found解决方法：在build文件添加：
+buildscript {repositories {jcenter()}dependencies {classpath ‘com.android.tools.build:gradle:2.1.0’
+}}">
   
   
     <link rel="icon" href="/favicon.png">
@@ -134,7 +140,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      19
+      BUG:Error:(1, 0) Plugin with id &#39;com.android.application&#39; not found
     </h1>
   
 
@@ -147,7 +153,10 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <p>Plugin with id ‘com.android.application’ not found<br>解决方法：<br>在build文件添加：</p>
+<p>buildscript {<br>repositories {<br>jcenter()<br>}<br>dependencies {<br>classpath ‘com.android.tools.build:gradle:2.1.0’</p>
+<p>}<br>}</p>
+
       
 
       
@@ -247,7 +256,7 @@
   
   
     <a href="/2017/01/06/18/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">18</div>
+      <div class="article-nav-title">BUG:android studio 出现file no png</div>
       <i class="icon-circle-right"></i>
     </a>
   
