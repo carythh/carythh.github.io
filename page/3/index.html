@@ -11,7 +11,7 @@
   <meta name="description" content="不积跬步无以至千里">
 <meta property="og:type" content="website">
 <meta property="og:title" content="心火博客">
-<meta property="og:url" content="http://yoursite.com/index.html">
+<meta property="og:url" content="http://yoursite.com/page/3/index.html">
 <meta property="og:site_name" content="心火博客">
 <meta property="og:description" content="不积跬步无以至千里">
 <meta name="twitter:card" content="summary">
@@ -128,27 +128,30 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-19" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-ceshiblog" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/01/06/19/">19</a>
+      <a class="article-title" href="/2017/01/03/ceshiblog/">BUG：android.view.inputmethod.InputConnectionWrapper.finishComposingText</a>
     </h1>
   
 
         
-        <a href="/2017/01/06/19/" class="archive-article-date">
-  	<time datetime="2017-01-06T04:52:20.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-01-06</time>
+        <a href="/2017/01/03/ceshiblog/" class="archive-article-date">
+  	<time datetime="2017-01-03T08:48:24.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-01-03</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <p>  android开发遇到的bug：android.view.inputmethod.InputConnectionWrapper.finishComposingText</p>
+<p>  解决方法：<br>重写edittext重写并修改方法：</p>
+<p>@Override<br>public InputConnection onCreateInputConnection(EditorInfo outAttrs) {<br> InputConnection inputConnection = super.onCreateInputConnection(outAttrs);<br> if (inputConnection == null)<br> {<br>   return null;<br> }<br> return new mInputConnecttion(super.onCreateInputConnection(outAttrs),<br> false);<br>}</p>
+
       
 
       
@@ -160,7 +163,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2017/01/06/19/">展开全文 >></a>
+          <a class="article-more-a" href="/2017/01/03/ceshiblog/">展开全文 >></a>
         </p>
       
 
@@ -178,27 +181,28 @@
 
 
   
-    <article id="post-18" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-hello-world" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/01/06/18/">18</a>
+      <a class="article-title" href="/2017/01/03/hello-world/">移动AR未来</a>
     </h1>
   
 
         
-        <a href="/2017/01/06/18/" class="archive-article-date">
-  	<time datetime="2017-01-06T04:52:17.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-01-06</time>
+        <a href="/2017/01/03/hello-world/" class="archive-article-date">
+  	<time datetime="2017-01-03T08:33:24.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-01-03</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <p>   增强现实技术（Augmented Reality，简称 AR），<br>是一种实时地计算摄影机影像的位置及角度并加上相应图像、视频、3D模型的技术，<br>这种技术的目标是在屏幕上把虚拟世界套在现实世界并进行互动。<br>这种技术由1990年提出。随着随身电子产品CPU运算能力的提升，预期增强现实的用途将会越来越广。<br>目前国外，国内很火热，涉及多个领域，游戏，电商，影视等。<br>AR发展迅速 主要游戏领域 ，支付宝今年AR红包更进一步推动其发展</p>
+
       
 
       
@@ -210,407 +214,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2017/01/06/18/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
-    <article id="post-17" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/01/06/17/">17</a>
-    </h1>
-  
-
-        
-        <a href="/2017/01/06/17/" class="archive-article-date">
-  	<time datetime="2017-01-06T04:52:13.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-01-06</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/01/06/17/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
-    <article id="post-16" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/01/06/16/">16</a>
-    </h1>
-  
-
-        
-        <a href="/2017/01/06/16/" class="archive-article-date">
-  	<time datetime="2017-01-06T04:52:09.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-01-06</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/01/06/16/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
-    <article id="post-15" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/01/06/15/">15</a>
-    </h1>
-  
-
-        
-        <a href="/2017/01/06/15/" class="archive-article-date">
-  	<time datetime="2017-01-06T04:52:06.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-01-06</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/01/06/15/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
-    <article id="post-54" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/01/06/54/">54</a>
-    </h1>
-  
-
-        
-        <a href="/2017/01/06/54/" class="archive-article-date">
-  	<time datetime="2017-01-06T04:52:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-01-06</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/01/06/54/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
-    <article id="post-14" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/01/06/14/">14</a>
-    </h1>
-  
-
-        
-        <a href="/2017/01/06/14/" class="archive-article-date">
-  	<time datetime="2017-01-06T04:51:56.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-01-06</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/01/06/14/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
-    <article id="post-13" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/01/06/13/">13</a>
-    </h1>
-  
-
-        
-        <a href="/2017/01/06/13/" class="archive-article-date">
-  	<time datetime="2017-01-06T04:51:52.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-01-06</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/01/06/13/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
-    <article id="post-12" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/01/06/12/">12</a>
-    </h1>
-  
-
-        
-        <a href="/2017/01/06/12/" class="archive-article-date">
-  	<time datetime="2017-01-06T04:51:49.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-01-06</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/01/06/12/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
-    <article id="post-11" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/01/06/11/">11</a>
-    </h1>
-  
-
-        
-        <a href="/2017/01/06/11/" class="archive-article-date">
-  	<time datetime="2017-01-06T04:51:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-01-06</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/01/06/11/">展开全文 >></a>
+          <a class="article-more-a" href="/2017/01/03/hello-world/">展开全文 >></a>
         </p>
       
 
@@ -630,7 +234,7 @@
   
   
     <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
+      <a class="extend prev" rel="prev" href="/page/2/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span>
     </nav>
   
 
